@@ -17,7 +17,7 @@
       <span class="logo-badge">HSK 5</span>
       <div>
         <div class="logo-title">学习词汇 · Learn Vocabulary</div>
-        <div class="logo-sub">Mandarin · Indonesia · English</div>
+        <div class="logo-sub">Chinese · Indonesia · English</div>
       </div>
     </div>
     <div class="header-toggles">
@@ -45,7 +45,7 @@
   <div class="controls">
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="Cari hanzi, pinyin, atau terjemahan...">
+      <input type="text" id="searchInput" placeholder="Search for hanzi, pinyin, or translation...">
     </div>
     <select id="typeFilter">
       <option value="">All Types of Words</option>
@@ -108,17 +108,17 @@
         </div>
       </div>
     </div>
-    <div class="kbd-hint">Spasi=balik · ←→=navigasi · Enter=tahu · X=belum tahu</div>
+    <div class="kbd-hint">Space=back · ←→=navigation · Enter=know · X=not know</div>
     <div class="fc-controls">
-      <button class="fc-btn" onclick="fcPrev()">← Kembali</button>
-      <button class="fc-btn skip" onclick="fcSkipFn()">✗ Belum tahu</button>
-      <button class="fc-btn know" onclick="fcKnowFn()">✓ Sudah tahu</button>
-      <button class="fc-btn" onclick="fcNext()">Lewati →</button>
+      <button class="fc-btn" onclick="fcPrev()">← Back</button>
+      <button class="fc-btn skip" onclick="fcSkipFn()">✗ Not know</button>
+      <button class="fc-btn know" onclick="fcKnowFn()">✓ Already tahu</button>
+      <button class="fc-btn" onclick="fcNext()">Skip →</button>
     </div>
-    <div class="fc-meta" id="fcStats">✓ 0 sudah tahu &nbsp;·&nbsp; ✗ 0 belum tahu</div>
+    <div class="fc-meta" id="fcStats">✓ 0 already know &nbsp;·&nbsp; ✗ 0 not know</div>
     <div class="fc-tool-row">
-      <button class="btn" onclick="initFlashcards()">🔄 Mulai Ulang</button>
-      <button class="btn" id="fcBmOnlyBtn" onclick="toggleFcBmOnly()">🔖 Hanya yang ditandai</button>
+      <button class="btn" onclick="initFlashcards()">🔄 Restart</button>
+      <button class="btn" id="fcBmOnlyBtn" onclick="toggleFcBmOnly()">🔖 Only those marked</button>
     </div>
   </div>
 </div>
@@ -126,48 +126,48 @@
 <!-- ===== ORDERING ===== -->
 <div class="section" id="tab-ordering">
   <div class="wr-header">
-    <h2>✏️ Latihan Mengurutkan Kata</h2>
-    <p>Susun kata-kata menjadi kalimat yang benar. Setiap sesi soal diacak secara random.</p>
+    <h2>✏️ Word Sorting Practice</h2>
+    <p>Arrange the words into correct sentences. Each session's questions are randomly shuffled.</p>
   </div>
 
   <div class="wr-toolbar">
     <div class="wr-count-select">
-      <span>Jumlah soal:</span>
+      <span>Number of questions:</span>
       <select id="wrCountSelect">
-        <option value="5">5 soal</option>
-        <option value="10" selected>10 soal</option>
-        <option value="15">15 soal</option>
-        <option value="20">20 soal</option>
-        <option value="50">Semua (50)</option>
+        <option value="5">5 question</option>
+        <option value="10" selected>10 question</option>
+        <option value="15">15 question</option>
+        <option value="20">20 question</option>
+        <option value="50">All (50)</option>
       </select>
     </div>
-    <button class="btn" onclick="restartOrdering()">🔄 Sesi Baru (Acak)</button>
+    <button class="btn" onclick="restartOrdering()">🔄 New Session (Random)</button>
   </div>
 
   <div class="wr-progress">
     <div class="prog-bar"><div class="prog-fill" id="wrFill" style="width:0%"></div></div>
     <span class="prog-text" id="wrProgText">1 / 10</span>
-    <div class="wr-score-chip">Skor: <span id="wrScore">0</span>/<span id="wrTotal">10</span></div>
+    <div class="wr-score-chip">Score: <span id="wrScore">0</span>/<span id="wrTotal">10</span></div>
   </div>
 
   <div id="wrGame">
     <div class="wr-card">
-      <div class="wr-qnum" id="wrQnum">SOAL 1</div>
+      <div class="wr-qnum" id="wrQnum">QUESTION 1</div>
       <div class="wr-grammar-tag" id="wrGrammarTag"></div>
-      <div class="wr-instruction">Susun kata-kata berikut menjadi kalimat yang benar:</div>
+      <div class="wr-instruction">Arrange the following words into correct sentences:</div>
 
-      <div class="wr-label">📦 Bank Kata — klik untuk masukkan ke jawaban:</div>
+      <div class="wr-label">📦 Word Bank — click to enter into answers:</div>
       <div class="wr-bank" id="wrBank"></div>
 
-      <div class="wr-label">📝 Jawaban — klik kata untuk kembalikan ke bank:</div>
+      <div class="wr-label">📝 Answer — click the word to return it to the bank:</div>
       <div class="wr-answer-wrap" id="wrAnswer">
-        <span class="wr-empty-hint">Belum ada kata dipilih…</span>
+        <span class="wr-empty-hint">No words have been chosen yet…</span>
       </div>
 
       <div class="wr-btn-row">
-        <button class="wr-btn primary" id="wrCheckBtn" onclick="checkOrdering()">✓ Periksa</button>
-        <button class="wr-btn danger" id="wrClearBtn" onclick="clearOrdering()">↺ Hapus Semua</button>
-        <button class="wr-btn" id="wrNextBtn" onclick="nextOrdering()" style="display:none">→ Soal Berikutnya</button>
+        <button class="wr-btn primary" id="wrCheckBtn" onclick="checkOrdering()">✓ Check</button>
+        <button class="wr-btn danger" id="wrClearBtn" onclick="clearOrdering()">↺ Delete all</button>
+        <button class="wr-btn" id="wrNextBtn" onclick="nextOrdering()" style="display:none">→ Next question</button>
       </div>
       <div class="wr-feedback" id="wrFeedback"></div>
     </div>
@@ -176,9 +176,9 @@
   <div class="wr-result" id="wrResult">
     <div class="wr-result-stars" id="wrStars">🌟🌟🌟</div>
     <div class="wr-big-score" id="wrFinalScore">0/10</div>
-    <div class="wr-result-msg" id="wrResultMsg">Selesai!</div>
+    <div class="wr-result-msg" id="wrResultMsg">Finished!</div>
     <div class="wr-result-detail" id="wrResultDetail"></div>
-    <button class="wr-btn primary" onclick="restartOrdering()" style="margin:0 auto;display:flex;">🔄 Sesi Baru (Acak)</button>
+    <button class="wr-btn primary" onclick="restartOrdering()" style="margin:0 auto;display:flex;">🔄 New Session (Random)</button>
   </div>
 </div>
 
@@ -195,7 +195,7 @@
     </div>
     <div class="m-level" id="mLevel"></div>
       <div class="m-example" id="mExample" style="display:none;">
-      <div class="m-ex-label">💬 Contoh kalimat</div>
+      <div class="m-ex-label">💬 Example of sentences</div>
       <div class="m-ex-zh" id="mExZh"></div>
       <div class="m-ex-py" id="mExPy"></div>
       <div class="m-ex-row">
@@ -208,8 +208,8 @@
       </div>
     </div>
     <div class="m-actions">
-      <button class="m-btn" id="mBmBtn" onclick="toggleBmModal()">🔖 Tandai</button>
-      <button class="m-btn" onclick="speakModal()">🔊 Ucapkan</button>
+      <button class="m-btn" id="mBmBtn" onclick="toggleBmModal()">🔖 Mark</button>
+      <button class="m-btn" onclick="speakModal()">🔊 Audio</button>
     </div>
   </div>
 </div>
