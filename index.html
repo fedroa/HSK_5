@@ -99,7 +99,7 @@
         <div class="fc-face">
           <div class="fc-big-hanzi" id="fcHanzi">—</div>
           <div class="fc-big-pinyin" id="fcPinyin">—</div>
-          <div class="fc-sub">Klik untuk lihat arti</div>
+          <div class="fc-sub">Click to see the meaning</div>
         </div>
         <div class="fc-face fc-back">
           <div class="fc-type" id="fcType">—</div>
@@ -837,7 +837,7 @@ function showFcCard() {
   document.getElementById('fcFill').style.width = pct+'%';
   document.getElementById('fcProgText').textContent = `${fcIdx+1} / ${fcQueue.length}`;
   document.getElementById('fcStats').textContent =
-    `✓ ${fcKnownSet.size} sudah tahu · ✗ ${fcSkipSet.size} belum tahu`;
+    `✓ ${fcKnownSet.size} already know · ✗ ${fcSkipSet.size} not know`;
 }
 function flipCard() {
   fcFlipped = !fcFlipped;
@@ -916,10 +916,10 @@ function renderOrdAnswer() {
   const el = document.getElementById('wrAnswer');
   el.className = 'wr-answer-wrap';
   if (!ordPlaced.length) {
-    el.innerHTML = '<span class="wr-empty-hint">Klik kata di atas untuk menyusun kalimat…</span>';
+    el.innerHTML = '<span class="wr-empty-hint">Click the words above to form a sentence...</span>';
   } else {
     el.innerHTML = ordPlaced.map((a,i) =>
-      `<div class="wr-placed-chip" onclick="ordRemove(${i})" title="Klik untuk hapus">${a.word}</div>`
+      `<div class="wr-placed-chip" onclick="ordRemove(${i})" title="Click to delete">${a.word}</div>`
     ).join('');
   }
 }
@@ -949,7 +949,7 @@ function clearOrdering() {
 }
 
 function checkOrdering() {
-  if (!ordPlaced.length) { toast('⚠️ Susun kata dulu!'); return; }
+  if (!ordPlaced.length) { toast('⚠️ Let's arrange the words first!'); return; }
   ordChecked = true;
   const ex      = ordQueue[ordIdx];
   const userAns = ordPlaced.map(p => p.word).join('');
@@ -965,11 +965,11 @@ function checkOrdering() {
   fb.style.display = 'block';
   fb.className = 'wr-feedback ' + (correct ? 'correct' : 'wrong');
   fb.innerHTML = correct
-    ? `✅ <strong>Benar! Bagus sekali!</strong>
+    ? `✅ <strong>Benar! Very good!</strong>
        <div class="ans-hanzi">${ex.answer_display}</div>
        <div class="ans-pinyin">${ex.pinyin}</div>
        <div class="ans-meaning">${ex.meaning}</div>`
-    : `❌ <strong>Belum tepat.</strong> Jawaban yang benar:
+    : `❌ <strong>Belum tepat.</strong> Correct answer:
        <div class="ans-hanzi">${ex.answer_display}</div>
        <div class="ans-pinyin">${ex.pinyin}</div>
        <div class="ans-meaning">${ex.meaning}</div>`;
@@ -994,13 +994,13 @@ function showOrdResult() {
   document.getElementById('wrFill').style.width = '100%';
   document.getElementById('wrFinalScore').textContent = `${ordScore}/${total}`;
   let msg, stars;
-  if (pct===100) { msg='Sempurna! 🏆 Luar biasa!'; stars='🌟🌟🌟'; }
-  else if (pct>=80) { msg='Bagus sekali! 💪 Terus berlatih!'; stars='⭐⭐🌟'; }
-  else if (pct>=60) { msg='Lumayan! 😊 Bisa lebih baik lagi.'; stars='⭐⭐'; }
-  else { msg='Semangat belajar terus! 📚'; stars='⭐'; }
+  if (pct===100) { msg='Perfect! 🏆 Extraordinary!'; stars='🌟🌟🌟'; }
+  else if (pct>=80) { msg='Perfect! 💪 Keep practicing!'; stars='⭐⭐🌟'; }
+  else if (pct>=60) { msg='Reasonable! 😊 Could be better.'; stars='⭐⭐'; }
+  else { msg='The spirit of continuous learning! 📚'; stars='⭐'; }
   document.getElementById('wrStars').textContent    = stars;
   document.getElementById('wrResultMsg').textContent  = msg;
-  document.getElementById('wrResultDetail').textContent = `Kamu menjawab benar ${ordScore} dari ${total} soal (${pct}%)`;
+  document.getElementById('wrResultDetail').textContent = `You answered correctly ${ordScore} from ${total} question (${pct}%)`;
   document.getElementById('wrResult').classList.add('visible');
 }
 
