@@ -16,7 +16,7 @@
     <div class="logo">
       <span class="logo-badge">HSK 5</span>
       <div>
-        <div class="logo-title">学习词汇 · Belajar Kosakata</div>
+        <div class="logo-title">学习词汇 · Learn Vocabulary</div>
         <div class="logo-sub">Mandarin · Indonesia · English</div>
       </div>
     </div>
@@ -27,17 +27,17 @@
     </div>
     <div class="header-stats">
       <div class="stat-chip"><span class="stat-num" id="totalCount">1300</span><span class="stat-label">Total</span></div>
-      <div class="stat-chip"><span class="stat-num" id="bmCount">0</span><span class="stat-label">Ditandai</span></div>
-      <div class="stat-chip"><span class="stat-num" id="learnedCount">0</span><span class="stat-label">Dipelajari</span></div>
+      <div class="stat-chip"><span class="stat-num" id="bmCount">0</span><span class="stat-label">Marked</span></div>
+      <div class="stat-chip"><span class="stat-num" id="learnedCount">0</span><span class="stat-label">Be Learned</span></div>
     </div>
   </div>
 </div>
 
 <!-- NAV TABS -->
 <div class="nav-tabs">
-  <button class="nav-tab active" data-tab="browse" onclick="showTab('browse',this)">📚 Kosakata</button>
+  <button class="nav-tab active" data-tab="browse" onclick="showTab('browse',this)">📚 Vocabulary</button>
   <button class="nav-tab" data-tab="flash" onclick="showTab('flash',this)">🃏 Flashcard</button>
-  <button class="nav-tab" data-tab="ordering" onclick="showTab('ordering',this)">✏️ Urutkan Kata</button>
+  <button class="nav-tab" data-tab="ordering" onclick="showTab('ordering',this)">✏️ Writing</button>
 </div>
 
 <!-- ===== BROWSE ===== -->
@@ -48,40 +48,40 @@
       <input type="text" id="searchInput" placeholder="Cari hanzi, pinyin, atau terjemahan...">
     </div>
     <select id="typeFilter">
-      <option value="">Semua Jenis Kata</option>
-      <option value="名">名 — Kata Benda</option>
-      <option value="动">动 — Kata Kerja</option>
-      <option value="形">形 — Kata Sifat</option>
-      <option value="副">副 — Kata Keterangan</option>
-      <option value="连">连 — Kata Hubung</option>
-      <option value="介">介 — Kata Depan</option>
-      <option value="代">代 — Kata Ganti</option>
-      <option value="叹">叹 — Kata Seru</option>
-      <option value="助">助 — Partikel</option>
-      <option value="量">量 — Kata Satuan</option>
+      <option value="">All Types of Words</option>
+      <option value="名">名 — Noun</option>
+      <option value="动">动 — Verbs</option>
+      <option value="形">形 — Adjectives</option>
+      <option value="副">副 — Adverbs</option>
+      <option value="连">连 — Conjuctions</option>
+      <option value="介">介 — Prepositions</option>
+      <option value="代">代 — Pronouns</option>
+      <option value="叹">叹 — Interjections</option>
+      <option value="助">助 — Particles</option>
+      <option value="量">量 — Classifiers</option>
     </select>
     <select id="pageSizeSelect" onchange="setPageSize(+this.value)">
-      <option value="10">Tampil 10</option>
-      <option value="20">Tampil 20</option>
-      <option value="50" selected>Tampil 50</option>
-      <option value="100">Tampil 100</option>
-      <option value="200">Tampil 200</option>
-      <option value="500">Tampil 500</option>
-      <option value="1000">Tampil 1000</option>
-      <option value="1300">Tampil Semua</option>
+      <option value="10">Showing 10</option>
+      <option value="20">Showing 20</option>
+      <option value="50" selected>Showing 50</option>
+      <option value="100">Showing 100</option>
+      <option value="200">Showing 200</option>
+      <option value="500">Showing 500</option>
+      <option value="1000">Showing 1000</option>
+      <option value="1300">Showing all</option>
     </select>
     <div class="mode-toggle">
       <button class="mode-btn active" id="modeGrid" onclick="setDisplayMode('grid')">⊞ Grid</button>
       <button class="mode-btn" id="modeList" onclick="setDisplayMode('list')">≡ List</button>
     </div>
-    <button class="btn" id="bmOnlyBtn" onclick="toggleBmOnly()">🔖 Ditandai saja</button>
-    <button class="btn" onclick="shuffleVocab()">🔀 Acak</button>
+    <button class="btn" id="bmOnlyBtn" onclick="toggleBmOnly()">🔖 Just mark it</button>
+    <button class="btn" onclick="shuffleVocab()">🔀 Random</button>
     <button class="btn" id="sortAzBtn" onclick="sortAZ()">🔤 A–Z</button>
   </div>
   <div class="alpha-bar" id="alphaBar"></div>
   <div class="info-bar" id="resultCount"></div>
   <div id="listHeader" class="list-header" style="display:none;">
-    <span>Hanzi</span><span>Pinyin</span><span>Indonesia</span><span>English</span><span>Jenis</span><span></span>
+    <span>Hanzi</span><span>Pinyin</span><span>Indonesia</span><span>English</span><span>Type</span><span></span>
   </div>
   <div id="vocabContainer"></div>
   <div class="pagination" id="pagination"></div>
