@@ -550,7 +550,7 @@ function applyFilters() {
     return true;
   });
   document.getElementById('resultCount').textContent =
-    `Showing ${filtered.length} of ${VOCAB.length} words total`;
+    `Menampilkan ${filtered.length} kata dari ${VOCAB.length} total`;
   renderPage();
   renderPagination();
 }
@@ -563,7 +563,7 @@ function renderPage() {
   const items = alphaFilter ? filtered : filtered.slice((page-1)*pageSize, page*pageSize);
 
   if (!items.length) {
-    c.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div>No words found</div></div>';
+    c.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div>Tidak ada kata ditemukan</div></div>';
     lh.style.display = 'none'; return;
   }
   if (displayMode === 'list') {
@@ -750,7 +750,7 @@ function toggleBm(e, h) {
   localStorage.setItem('hsk5_bm', JSON.stringify([...bookmarks]));
   updateStats(); renderPage();
   if (bmOnly) applyFilters();
-  toast(bookmarks.has(h) ? '🔖 Bookmarked!' : '🔖 Removed from the marker');
+  toast(bookmarks.has(h) ? '🔖 Ditandai!' : '🔖 Dihapus dari penanda');
 }
 function toggleBmModal() {
   if (!curModal) return;
@@ -762,7 +762,7 @@ function toggleBmModal() {
   const btn = document.getElementById('mBmBtn');
   const on  = bookmarks.has(h);
   btn.classList.toggle('bm-on', on);
-  btn.textContent = on ? '🔖 Bookmarked' : '🔖 Mark';
+  btn.textContent = on ? '🔖 Ditandai' : '🔖 Tandai';
 }
 
 // ============================================================
@@ -815,7 +815,7 @@ function initFlashcards() {
   const src = fcBmOnly
     ? VOCAB.filter(w => bookmarks.has(w.hanzi))
     : [...filtered];
-  if (!src.length) { toast('⚠️ There are no words!'); return; }
+  if (!src.length) { toast('⚠️ Tidak ada kata!'); return; }
   fcQueue = shuffle([...src]);
   fcIdx = 0;
   fcKnownSet.clear(); fcSkipSet.clear(); fcFlipped = false;
@@ -837,7 +837,7 @@ function showFcCard() {
   document.getElementById('fcFill').style.width = pct+'%';
   document.getElementById('fcProgText').textContent = `${fcIdx+1} / ${fcQueue.length}`;
   document.getElementById('fcStats').textContent =
-    `✓ ${fcKnownSet.size} already know · ✗ ${fcSkipSet.size} don't know yet`;
+    `✓ ${fcKnownSet.size} sudah tahu · ✗ ${fcSkipSet.size} belum tahu`;
 }
 function flipCard() {
   fcFlipped = !fcFlipped;
@@ -891,7 +891,7 @@ function showOrdQuestion() {
   const bankTokens = shuffle([...ex.words].filter(w => w !== '，'));
 
   document.getElementById('wrQnum').textContent =
-    `Question ${ordIdx+1} from ${ordQueue.length}`;
+    `SOAL ${ordIdx+1} dari ${ordQueue.length}`;
   document.getElementById('wrGrammarTag').textContent = ex.grammar || '';
   document.getElementById('wrGrammarTag').style.display = ex.grammar ? '' : 'none';
 
@@ -916,7 +916,7 @@ function renderOrdAnswer() {
   const el = document.getElementById('wrAnswer');
   el.className = 'wr-answer-wrap';
   if (!ordPlaced.length) {
-    el.innerHTML = '<span class="wr-empty-hint">Click the words above to form a sentence…</span>';
+    el.innerHTML = '<span class="wr-empty-hint">Klik kata di atas untuk menyusun kalimat…</span>';
   } else {
     el.innerHTML = ordPlaced.map((a,i) =>
       `<div class="wr-placed-chip" onclick="ordRemove(${i})" title="Klik untuk hapus">${a.word}</div>`
@@ -994,13 +994,13 @@ function showOrdResult() {
   document.getElementById('wrFill').style.width = '100%';
   document.getElementById('wrFinalScore').textContent = `${ordScore}/${total}`;
   let msg, stars;
-  if (pct===100) { msg='Perfect! 🏆 Excellent!'; stars='🌟🌟🌟'; }
-  else if (pct>=80) { msg='That's great! 💪 Keep practicing!'; stars='⭐⭐🌟'; }
-  else if (pct>=60) { msg='Notbad! 😊 It could be even better.'; stars='⭐⭐'; }
-  else { msg='Keep up the enthusiasm for learning! 📚'; stars='⭐'; }
+  if (pct===100) { msg='Sempurna! 🏆 Luar biasa!'; stars='🌟🌟🌟'; }
+  else if (pct>=80) { msg='Bagus sekali! 💪 Terus berlatih!'; stars='⭐⭐🌟'; }
+  else if (pct>=60) { msg='Lumayan! 😊 Bisa lebih baik lagi.'; stars='⭐⭐'; }
+  else { msg='Semangat belajar terus! 📚'; stars='⭐'; }
   document.getElementById('wrStars').textContent    = stars;
   document.getElementById('wrResultMsg').textContent  = msg;
-  document.getElementById('wrResultDetail').textContent = `You got ${ordScore} out of ${total} question correct (${pct}%)`;
+  document.getElementById('wrResultDetail').textContent = `Kamu menjawab benar ${ordScore} dari ${total} soal (${pct}%)`;
   document.getElementById('wrResult').classList.add('visible');
 }
 
