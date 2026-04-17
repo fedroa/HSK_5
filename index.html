@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HSK 5 — Belajar Kosakata Mandarin</title>
+<title>HSK 5 — Learn Chinese Vocabulary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="hsk5.css">
@@ -750,7 +750,7 @@ function toggleBm(e, h) {
   localStorage.setItem('hsk5_bm', JSON.stringify([...bookmarks]));
   updateStats(); renderPage();
   if (bmOnly) applyFilters();
-  toast(bookmarks.has(h) ? '🔖 Ditandai!' : '🔖 Dihapus dari penanda');
+  toast(bookmarks.has(h) ? '🔖 Bookmarked!' : '🔖 Removed from the marker');
 }
 function toggleBmModal() {
   if (!curModal) return;
@@ -762,7 +762,7 @@ function toggleBmModal() {
   const btn = document.getElementById('mBmBtn');
   const on  = bookmarks.has(h);
   btn.classList.toggle('bm-on', on);
-  btn.textContent = on ? '🔖 Ditandai' : '🔖 Tandai';
+  btn.textContent = on ? '🔖 Bookmarked' : '🔖 Mark';
 }
 
 // ============================================================
@@ -815,7 +815,7 @@ function initFlashcards() {
   const src = fcBmOnly
     ? VOCAB.filter(w => bookmarks.has(w.hanzi))
     : [...filtered];
-  if (!src.length) { toast('⚠️ Tidak ada kata!'); return; }
+  if (!src.length) { toast('⚠️ There are no words!'); return; }
   fcQueue = shuffle([...src]);
   fcIdx = 0;
   fcKnownSet.clear(); fcSkipSet.clear(); fcFlipped = false;
@@ -837,7 +837,7 @@ function showFcCard() {
   document.getElementById('fcFill').style.width = pct+'%';
   document.getElementById('fcProgText').textContent = `${fcIdx+1} / ${fcQueue.length}`;
   document.getElementById('fcStats').textContent =
-    `✓ ${fcKnownSet.size} sudah tahu · ✗ ${fcSkipSet.size} belum tahu`;
+    `✓ ${fcKnownSet.size} already know · ✗ ${fcSkipSet.size} don't know yet`;
 }
 function flipCard() {
   fcFlipped = !fcFlipped;
