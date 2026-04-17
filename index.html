@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>˚.🎀༘⋆ semangat belajar HSK 5 nya sayaanggg 🌸˚˖𓍢ִ໋🌷͙֒✧🩷˚⋆ </title>
+<title>HSK 5 — Belajar Kosakata Mandarin</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Noto+Sans+SC:wght@300;400;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="hsk5.css">
@@ -28,7 +28,7 @@
     <div class="header-stats">
       <div class="stat-chip"><span class="stat-num" id="totalCount">1300</span><span class="stat-label">Total</span></div>
       <div class="stat-chip"><span class="stat-num" id="bmCount">0</span><span class="stat-label">Marked</span></div>
-      <div class="stat-chip"><span class="stat-num" id="learnedCount">0</span><span class="stat-label">Be Learned</span></div>
+      <div class="stat-chip"><span class="stat-num" id="learnedCount">0</span><span class="stat-label">Be learn</span></div>
     </div>
   </div>
 </div>
@@ -45,30 +45,30 @@
   <div class="controls">
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="Search for hanzi, pinyin, or translation...">
+      <input type="text" id="searchInput" placeholder="Search for Hanzi, Pinyin, or translation...">
     </div>
     <select id="typeFilter">
       <option value="">All Types of Words</option>
-      <option value="名">名 — Noun</option>
-      <option value="动">动 — Verbs</option>
-      <option value="形">形 — Adjectives</option>
-      <option value="副">副 — Adverbs</option>
-      <option value="连">连 — Conjuctions</option>
-      <option value="介">介 — Prepositions</option>
-      <option value="代">代 — Pronouns</option>
-      <option value="叹">叹 — Interjections</option>
-      <option value="助">助 — Particles</option>
-      <option value="量">量 — Classifiers</option>
+      <option value="名">名 — Kata Benda (Noun)</option>
+      <option value="动">动 — Kata Kerja (Verb)</option>
+      <option value="形">形 — Kata Sifat (Adjective)</option>
+      <option value="副">副 — Kata Keterangan (Adverb)</option>
+      <option value="连">连 — Kata Hubung (Conjunction)</option>
+      <option value="介">介 — Kata Depan (Preposition)</option>
+      <option value="代">代 — Kata Ganti (Pronoun)</option>
+      <option value="叹">叹 — Kata Seru (Interjection)</option>
+      <option value="助">助 — Partikel (Particle)</option>
+      <option value="量">量 — Kata Satuan (Classifier)</option>
     </select>
     <select id="pageSizeSelect" onchange="setPageSize(+this.value)">
-      <option value="10">Showing 10</option>
-      <option value="20">Showing 20</option>
-      <option value="50" selected>Showing 50</option>
-      <option value="100">Showing 100</option>
-      <option value="200">Showing 200</option>
-      <option value="500">Showing 500</option>
-      <option value="1000">Showing 1000</option>
-      <option value="1300">Showing all</option>
+      <option value="10">Show 10</option>
+      <option value="20">Show 20</option>
+      <option value="50" selected>Show 50</option>
+      <option value="100">Show 100</option>
+      <option value="200">Show 200</option>
+      <option value="500">Show 500</option>
+      <option value="1000">Show 1000</option>
+      <option value="1300">Show all</option>
     </select>
     <div class="mode-toggle">
       <button class="mode-btn active" id="modeGrid" onclick="setDisplayMode('grid')">⊞ Grid</button>
@@ -108,14 +108,14 @@
         </div>
       </div>
     </div>
-    <div class="kbd-hint">Space=back · ←→=navigation · Enter=know · X=not know</div>
+    <div class="kbd-hint">Space=back · ←→=navigation · Enter=know · X=don't know yet</div>
     <div class="fc-controls">
       <button class="fc-btn" onclick="fcPrev()">← Back</button>
-      <button class="fc-btn skip" onclick="fcSkipFn()">✗ Not know</button>
-      <button class="fc-btn know" onclick="fcKnowFn()">✓ Already tahu</button>
+      <button class="fc-btn skip" onclick="fcSkipFn()">✗ Don't know yet</button>
+      <button class="fc-btn know" onclick="fcKnowFn()">✓ Already know</button>
       <button class="fc-btn" onclick="fcNext()">Skip →</button>
     </div>
-    <div class="fc-meta" id="fcStats">✓ 0 already know &nbsp;·&nbsp; ✗ 0 not know</div>
+    <div class="fc-meta" id="fcStats">✓ 0 sudah tahu &nbsp;·&nbsp; ✗ 0 don't know yet</div>
     <div class="fc-tool-row">
       <button class="btn" onclick="initFlashcards()">🔄 Restart</button>
       <button class="btn" id="fcBmOnlyBtn" onclick="toggleFcBmOnly()">🔖 Only those marked</button>
@@ -126,8 +126,8 @@
 <!-- ===== ORDERING ===== -->
 <div class="section" id="tab-ordering">
   <div class="wr-header">
-    <h2>✏️ Word Sorting Practice</h2>
-    <p>Arrange the words into correct sentences. Each session's questions are randomly shuffled.</p>
+    <h2>✏️ Word Ordering Exercise</h2>
+    <p>Arrange the words into correct sentences. Each set of questions is randomly shuffled.</p>
   </div>
 
   <div class="wr-toolbar">
@@ -147,27 +147,27 @@
   <div class="wr-progress">
     <div class="prog-bar"><div class="prog-fill" id="wrFill" style="width:0%"></div></div>
     <span class="prog-text" id="wrProgText">1 / 10</span>
-    <div class="wr-score-chip">Score: <span id="wrScore">0</span>/<span id="wrTotal">10</span></div>
+    <div class="wr-score-chip">Skor: <span id="wrScore">0</span>/<span id="wrTotal">10</span></div>
   </div>
 
   <div id="wrGame">
     <div class="wr-card">
-      <div class="wr-qnum" id="wrQnum">QUESTION 1</div>
+      <div class="wr-qnum" id="wrQnum">Question 1</div>
       <div class="wr-grammar-tag" id="wrGrammarTag"></div>
-      <div class="wr-instruction">Arrange the following words into correct sentences:</div>
+      <div class="wr-instruction">Arrange the following words into a correct sentence:</div>
 
-      <div class="wr-label">📦 Word Bank — click to enter into answers:</div>
+      <div class="wr-label">📦 Arrange the following words from the Word Bank — click to add them to your answer — into a correct sentence:</div>
       <div class="wr-bank" id="wrBank"></div>
 
-      <div class="wr-label">📝 Answer — click the word to return it to the bank:</div>
+      <div class="wr-label">📝 Answer — click the word to return to the bank:</div>
       <div class="wr-answer-wrap" id="wrAnswer">
-        <span class="wr-empty-hint">No words have been chosen yet…</span>
+        <span class="wr-empty-hint">No word has been chosen yet…</span>
       </div>
 
       <div class="wr-btn-row">
         <button class="wr-btn primary" id="wrCheckBtn" onclick="checkOrdering()">✓ Check</button>
-        <button class="wr-btn danger" id="wrClearBtn" onclick="clearOrdering()">↺ Delete all</button>
-        <button class="wr-btn" id="wrNextBtn" onclick="nextOrdering()" style="display:none">→ Next question</button>
+        <button class="wr-btn danger" id="wrClearBtn" onclick="clearOrdering()">↺ Delete All</button>
+        <button class="wr-btn" id="wrNextBtn" onclick="nextOrdering()" style="display:none">→ Next Question</button>
       </div>
       <div class="wr-feedback" id="wrFeedback"></div>
     </div>
@@ -176,7 +176,7 @@
   <div class="wr-result" id="wrResult">
     <div class="wr-result-stars" id="wrStars">🌟🌟🌟</div>
     <div class="wr-big-score" id="wrFinalScore">0/10</div>
-    <div class="wr-result-msg" id="wrResultMsg">Finished!</div>
+    <div class="wr-result-msg" id="wrResultMsg">Completed!</div>
     <div class="wr-result-detail" id="wrResultDetail"></div>
     <button class="wr-btn primary" onclick="restartOrdering()" style="margin:0 auto;display:flex;">🔄 New Session (Random)</button>
   </div>
@@ -195,7 +195,7 @@
     </div>
     <div class="m-level" id="mLevel"></div>
       <div class="m-example" id="mExample" style="display:none;">
-      <div class="m-ex-label">💬 Example of sentences</div>
+      <div class="m-ex-label">💬 Example sentence</div>
       <div class="m-ex-zh" id="mExZh"></div>
       <div class="m-ex-py" id="mExPy"></div>
       <div class="m-ex-row">
@@ -209,7 +209,7 @@
     </div>
     <div class="m-actions">
       <button class="m-btn" id="mBmBtn" onclick="toggleBmModal()">🔖 Mark</button>
-      <button class="m-btn" onclick="speakModal()">🔊 Audio</button>
+      <button class="m-btn" onclick="speakModal()">🔊 Sound</button>
     </div>
   </div>
 </div>
@@ -837,7 +837,7 @@ function showFcCard() {
   document.getElementById('fcFill').style.width = pct+'%';
   document.getElementById('fcProgText').textContent = `${fcIdx+1} / ${fcQueue.length}`;
   document.getElementById('fcStats').textContent =
-    `✓ ${fcKnownSet.size} already know · ✗ ${fcSkipSet.size} not know`;
+    `✓ ${fcKnownSet.size} sudah tahu · ✗ ${fcSkipSet.size} belum tahu`;
 }
 function flipCard() {
   fcFlipped = !fcFlipped;
@@ -916,10 +916,10 @@ function renderOrdAnswer() {
   const el = document.getElementById('wrAnswer');
   el.className = 'wr-answer-wrap';
   if (!ordPlaced.length) {
-    el.innerHTML = '<span class="wr-empty-hint">Click the words above to form a sentence...</span>';
+    el.innerHTML = '<span class="wr-empty-hint">Klik kata di atas untuk menyusun kalimat…</span>';
   } else {
     el.innerHTML = ordPlaced.map((a,i) =>
-      `<div class="wr-placed-chip" onclick="ordRemove(${i})" title="Click to delete">${a.word}</div>`
+      `<div class="wr-placed-chip" onclick="ordRemove(${i})" title="Klik untuk hapus">${a.word}</div>`
     ).join('');
   }
 }
@@ -949,7 +949,7 @@ function clearOrdering() {
 }
 
 function checkOrdering() {
-  if (!ordPlaced.length) { toast('⚠️ Let's arrange the words first!'); return; }
+  if (!ordPlaced.length) { toast('⚠️ Susun kata dulu!'); return; }
   ordChecked = true;
   const ex      = ordQueue[ordIdx];
   const userAns = ordPlaced.map(p => p.word).join('');
@@ -965,11 +965,11 @@ function checkOrdering() {
   fb.style.display = 'block';
   fb.className = 'wr-feedback ' + (correct ? 'correct' : 'wrong');
   fb.innerHTML = correct
-    ? `✅ <strong>Benar! Very good!</strong>
+    ? `✅ <strong>Benar! Bagus sekali!</strong>
        <div class="ans-hanzi">${ex.answer_display}</div>
        <div class="ans-pinyin">${ex.pinyin}</div>
        <div class="ans-meaning">${ex.meaning}</div>`
-    : `❌ <strong>Belum tepat.</strong> Correct answer:
+    : `❌ <strong>Belum tepat.</strong> Jawaban yang benar:
        <div class="ans-hanzi">${ex.answer_display}</div>
        <div class="ans-pinyin">${ex.pinyin}</div>
        <div class="ans-meaning">${ex.meaning}</div>`;
@@ -994,13 +994,13 @@ function showOrdResult() {
   document.getElementById('wrFill').style.width = '100%';
   document.getElementById('wrFinalScore').textContent = `${ordScore}/${total}`;
   let msg, stars;
-  if (pct===100) { msg='Perfect! 🏆 Extraordinary!'; stars='🌟🌟🌟'; }
-  else if (pct>=80) { msg='Perfect! 💪 Keep practicing!'; stars='⭐⭐🌟'; }
-  else if (pct>=60) { msg='Reasonable! 😊 Could be better.'; stars='⭐⭐'; }
-  else { msg='The spirit of continuous learning! 📚'; stars='⭐'; }
+  if (pct===100) { msg='Sempurna! 🏆 Luar biasa!'; stars='🌟🌟🌟'; }
+  else if (pct>=80) { msg='Bagus sekali! 💪 Terus berlatih!'; stars='⭐⭐🌟'; }
+  else if (pct>=60) { msg='Lumayan! 😊 Bisa lebih baik lagi.'; stars='⭐⭐'; }
+  else { msg='Semangat belajar terus! 📚'; stars='⭐'; }
   document.getElementById('wrStars').textContent    = stars;
   document.getElementById('wrResultMsg').textContent  = msg;
-  document.getElementById('wrResultDetail').textContent = `You answered correctly ${ordScore} from ${total} question (${pct}%)`;
+  document.getElementById('wrResultDetail').textContent = `Kamu menjawab benar ${ordScore} dari ${total} soal (${pct}%)`;
   document.getElementById('wrResult').classList.add('visible');
 }
 
