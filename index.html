@@ -916,7 +916,7 @@ function renderOrdAnswer() {
   const el = document.getElementById('wrAnswer');
   el.className = 'wr-answer-wrap';
   if (!ordPlaced.length) {
-    el.innerHTML = '<span class="wr-empty-hint">Klik kata di atas untuk menyusun kalimat…</span>';
+    el.innerHTML = '<span class="wr-empty-hint">Click the words above to form a sentence…</span>';
   } else {
     el.innerHTML = ordPlaced.map((a,i) =>
       `<div class="wr-placed-chip" onclick="ordRemove(${i})" title="Klik untuk hapus">${a.word}</div>`
