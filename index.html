@@ -550,7 +550,7 @@ function applyFilters() {
     return true;
   });
   document.getElementById('resultCount').textContent =
-    `Menampilkan ${filtered.length} kata dari ${VOCAB.length} total`;
+    `Showing ${filtered.length} of ${VOCAB.length} words total`;
   renderPage();
   renderPagination();
 }
@@ -563,7 +563,7 @@ function renderPage() {
   const items = alphaFilter ? filtered : filtered.slice((page-1)*pageSize, page*pageSize);
 
   if (!items.length) {
-    c.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div>Tidak ada kata ditemukan</div></div>';
+    c.innerHTML = '<div class="empty-state"><div class="empty-icon">🔍</div><div>No words found</div></div>';
     lh.style.display = 'none'; return;
   }
   if (displayMode === 'list') {
