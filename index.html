@@ -891,7 +891,7 @@ function showOrdQuestion() {
   const bankTokens = shuffle([...ex.words].filter(w => w !== '，'));
 
   document.getElementById('wrQnum').textContent =
-    `SOAL ${ordIdx+1} dari ${ordQueue.length}`;
+    `Question ${ordIdx+1} from ${ordQueue.length}`;
   document.getElementById('wrGrammarTag').textContent = ex.grammar || '';
   document.getElementById('wrGrammarTag').style.display = ex.grammar ? '' : 'none';
 
@@ -994,13 +994,13 @@ function showOrdResult() {
   document.getElementById('wrFill').style.width = '100%';
   document.getElementById('wrFinalScore').textContent = `${ordScore}/${total}`;
   let msg, stars;
-  if (pct===100) { msg='Sempurna! 🏆 Luar biasa!'; stars='🌟🌟🌟'; }
-  else if (pct>=80) { msg='Bagus sekali! 💪 Terus berlatih!'; stars='⭐⭐🌟'; }
-  else if (pct>=60) { msg='Lumayan! 😊 Bisa lebih baik lagi.'; stars='⭐⭐'; }
-  else { msg='Semangat belajar terus! 📚'; stars='⭐'; }
+  if (pct===100) { msg='Perfect! 🏆 Excellent!'; stars='🌟🌟🌟'; }
+  else if (pct>=80) { msg='That's great! 💪 Keep practicing!'; stars='⭐⭐🌟'; }
+  else if (pct>=60) { msg='Notbad! 😊 It could be even better.'; stars='⭐⭐'; }
+  else { msg='Keep up the enthusiasm for learning! 📚'; stars='⭐'; }
   document.getElementById('wrStars').textContent    = stars;
   document.getElementById('wrResultMsg').textContent  = msg;
-  document.getElementById('wrResultDetail').textContent = `Kamu menjawab benar ${ordScore} dari ${total} soal (${pct}%)`;
+  document.getElementById('wrResultDetail').textContent = `You got ${ordScore} out of ${total} question correct (${pct}%)`;
   document.getElementById('wrResult').classList.add('visible');
 }
 
